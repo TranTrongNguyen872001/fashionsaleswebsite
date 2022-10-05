@@ -1,19 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Principal;
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
 
 namespace UngDungBanHang.Api.Controllers
 {
     [ApiController]
-    [Route("/api/qry/[controller]")]
-    public class docsController : BaseController
+    [Route("/api/cmd/[controller]")]
+    public class createController : BaseController
     {
         [Authorize]
         [HttpPost]
@@ -21,10 +15,10 @@ namespace UngDungBanHang.Api.Controllers
         {
             //string Code = this.User.FindFirst("Code").Value;
             //Console.WriteLine(userId);
-            Docs_Output output = new Docs_Output();
+            Create_Output output = new Create_Output();
             if (checkAuth())
             {
-                Docs_Input input = JsonConvert.DeserializeObject<Docs_Input>(index.ToString());
+                Create_Input input = JsonConvert.DeserializeObject<Create_Input>(index.ToString());
                 output.Query_DataInput(input);
                 return JsonObject.Parse(JsonConvert.SerializeObject(output));
             }
