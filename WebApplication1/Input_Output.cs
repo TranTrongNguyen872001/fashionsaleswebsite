@@ -135,8 +135,8 @@ namespace UngDungBanHang.Api
                         values += field.Value + ",";
                     }
                 }
-                key = key.Substring(0, key.Length - 1);
-                values = values.Substring(0, values.Length - 1);
+                key += "[ID]";
+                values += "(select newid())";
                 string sql = "insert into " + input.ApplicationCode + "(" + key + ") values (" + values + ")";
                 Conection.ExecuteNonQuery(sql);
             }
