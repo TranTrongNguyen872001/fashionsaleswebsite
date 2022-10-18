@@ -165,6 +165,10 @@ AutoTest.Net/
 
 # Installshield output folder
 [Ee]xpress/
+WebApplication1/obj
+WebApplication1/bin
+WebApplication1/Properties
+.vs
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
